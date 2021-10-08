@@ -1,16 +1,5 @@
-import os
 from setuptools import find_packages, setup
-from setuptools.command.install import install
 from torch.utils.cpp_extension import BuildExtension, CUDAExtension
-
-
-def make_cuda_ext(name, module, sources):
-    cuda_ext = CUDAExtension(
-        name='%s.%s' % (module, name),
-        sources=[os.path.join(*module.split('.'), src) for src in sources]
-    )
-    return cuda_ext
-
 
 if __name__ == '__main__':
 
